@@ -52,11 +52,11 @@ export const SessionEnrollmentPage = () => {
   }
 
   const isEnrolled = (sessionId: string) => {
-    return myEnrollments.some(e => e.sessionId === sessionId && e.status === 'active')
+    return myEnrollments.some(e => e.sessionId === sessionId && e.status === 'enrolled')
   }
 
   const getEnrollmentId = (sessionId: string) => {
-    const enrollment = myEnrollments.find(e => e.sessionId === sessionId && e.status === 'active')
+    const enrollment = myEnrollments.find(e => e.sessionId === sessionId && e.status === 'enrolled')
     return enrollment?.id
   }
 
@@ -90,7 +90,7 @@ export const SessionEnrollmentPage = () => {
           <h2 className="text-2xl font-semibold mb-4">My Sessions</h2>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {myEnrollments
-              .filter(e => e.status === 'active')
+              .filter(e => e.status === 'enrolled')
               .map(enrollment => {
                 const session = sessions.find(s => s.id === enrollment.sessionId)
                 if (!session) return null
