@@ -15,7 +15,6 @@ export const NewMember = () => {
       navigate('/members')
     } catch (error) {
       console.error('Failed to add member:', error)
-      // Error handling is already in the form
     }
   }
 

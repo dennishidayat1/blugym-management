@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { memberService } from '../services/memberService'
 import type { Member } from '../types/Member'
+import type { UpdateMemberRequest } from "../types/Member";
 
 export const useMembers = () => {
   const [members, setMembers] = useState<Member[]>([])
@@ -39,7 +40,7 @@ export const useMembers = () => {
     }
   }
 
-  const updateMember = async (id: string, updates: Partial<Member>) => {
+  const updateMember = async (id: string, updates: UpdateMemberRequest) => {
     try {
       setError(null)
       const updated = await memberService.update(id, updates)
